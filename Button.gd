@@ -15,6 +15,7 @@ func _pressed():
 	var window = JavaScript.get_interface("window")
 	console.log("teste")
 	window.login()
+	window.print("Igor Joaquim")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

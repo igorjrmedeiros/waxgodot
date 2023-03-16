@@ -112,9 +112,28 @@
 			visibility: visible;
 		}
 	</style>
-<link id='-gd-engine-icon' rel='icon' type='image/png' href='WebGame.icon.png' />
-<link rel='apple-touch-icon' href='WebGame.apple-touch-icon.png'/>
+<link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
+<link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
 <script src="https://waxjs-file.s3.amazonaws.com/waxjs.js"></script>
+
+<script>
+  const wax = new waxjs.WaxJS({
+    rpcEndpoint: 'https://wax.greymass.com'
+  });
+
+  async function login() {
+    try {
+      const userAccount = await wax.login();
+      document.getElementById('updater').value = userAccount;
+      await getCurrentMessage();
+    } catch(e) {
+      document.getElementById('response').append(e.message);
+    }
+  }
+</script>
+
+
+
 </head>
 <body>
 	<canvas id='canvas'>
@@ -136,10 +155,10 @@
 		<div id='status-notice' class='godot' style='display: none;'></div>
 	</div>
 
-	<script type='text/javascript' src='WebGame.js'></script>
+	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"WebGame","experimentalVK":false,"fileSizes":{"WebGame.pck":35072,"WebGame.wasm":13793958},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":35072,"index.wasm":13793958},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {

@@ -16,8 +16,8 @@ func _ready():
 		print("The JavaScript singleton is NOT available")
 
 func _pressed():
-	var wax = JavaScript.eval("const wax = new waxjs.WaxJS({rpcEndpoint: 'https://wax.greymass.com'});")
-	var funcLogin = JavaScript.eval("""
+	var waxInit = JavaScript.eval("""
+										const wax = new waxjs.WaxJS({rpcEndpoint: 'https://wax.greymass.com'});
 										async function login(){
 											try {
 											  const userAccount = await wax.login();

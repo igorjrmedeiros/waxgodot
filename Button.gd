@@ -11,11 +11,14 @@ func _ready():
 	pass # Replace with function body.
 
 func _pressed():
-	var console =  JavaScript.get_interface("console")
-	var window = JavaScript.get_interface("window")
-	console.log("teste")
-	window.login()
-	window.print("Igor Joaquim")
+	var wax = JavaScript.eval("const wax = new waxjs.WaxJS({rpcEndpoint: 'https://wax.greymass.com'});")
+	
+	
+	#var console =  JavaScript.get_interface("console")
+	#var window = JavaScript.get_interface("window")
+	#console.log("teste")
+	#window.login()
+	#window.print("Igor Joaquim")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

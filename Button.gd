@@ -25,8 +25,8 @@ func _pressed():
 											  console.log(e.message);
 											}
 										}
+										login();
 										""")
-	var waxAccount = JavaScript.get_interface("window").login();
 	
 	#var console =  JavaScript.get_interface("console")
 	#var window = JavaScript.get_interface("window")

@@ -27,8 +27,8 @@ func _pressed():
 										}
 										login();
 										""")
-	
-	#var console =  JavaScript.get_interface("console")
+	var console =  JavaScript.get_interface("console")
+	console.log(waxInit)
 	#var window = JavaScript.get_interface("window")
 	#console.log("teste")
 	#window.login()

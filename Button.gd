@@ -8,7 +8,12 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if OS.has_feature('JavaScript'):
+		JavaScript.eval("""
+			console.log('The JavaScript singleton is available')
+		""")
+	else:
+		print("The JavaScript singleton is NOT available")
 
 func _pressed():
 	var wax = JavaScript.eval("const wax = new waxjs.WaxJS({rpcEndpoint: 'https://wax.greymass.com'});")

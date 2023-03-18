@@ -16,20 +16,12 @@ func _ready():
 		print("The JavaScript singleton is NOT available")
 
 func _pressed():
-	var waxInit = JavaScript.eval("""
-										const wax = new waxjs.WaxJS({rpcEndpoint: 'https://wax.greymass.com'});
-										async function login(){
-											try {
-											  const userAccount = await wax.login();
-											} catch(e) {
-											  console.log(e.message);
-											}
-										}
-										login();
-										""", true)
 	var callback = JavaScript.create_callback(self, "consoleLog")
-	
-	#var window = JavaScript.get_interface("window")
+	var window = JavaScript.get_interface("window");
+	window.login();
+	var waxAccount = JavaScript.get_interface("userAccount")
+	consoleLog(waxAccount)
+	#var window = JavaScript.get_interface("window") 
 	#console.log("teste")
 	#window.login()
 	#window.print("Igor Joaquim")

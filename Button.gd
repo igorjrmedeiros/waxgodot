@@ -26,14 +26,17 @@ func _pressed():
 											}
 										}
 										login();
-										""")
-	var console =  JavaScript.get_interface("console")
-	console.log(waxInit)
+										""", true)
+	var callback = JavaScript.create_callback(self, "consoleLog")
+	
 	#var window = JavaScript.get_interface("window")
 	#console.log("teste")
 	#window.login()
 	#window.print("Igor Joaquim")
 
+func consoleLog(args):
+	var console = JavaScript.get_interface("console")
+	console.log(args)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

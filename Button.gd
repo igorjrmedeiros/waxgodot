@@ -17,8 +17,8 @@ func _ready():
 
 func _pressed():
 	var callback = JavaScript.create_callback(self, "consoleLog")
-	var window = JavaScript.get_interface("window");
-	window.login();
+	var window = JavaScript.get_interface("window")
+	window.login()
 	var waxAccount = JavaScript.get_interface("userAccount")
 	consoleLog(waxAccount)
 	#var window = JavaScript.get_interface("window") 
@@ -27,6 +27,7 @@ func _pressed():
 	#window.print("Igor Joaquim")
 
 func consoleLog(args):
+	var teste = 0
 	var console = JavaScript.get_interface("console")
 	console.log(args)
 # Called every frame. 'delta' is the elapsed time since the previous frame.

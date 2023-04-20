@@ -13,7 +13,7 @@ margin_top = 210.0
 margin_right = 621.0
 margin_bottom = 257.0
 rect_pivot_offset = Vector2( 125, 24 )
-text = "Anchor Login and Perform Task"
+text = "Anchor Login "
 script = ExtResource( 3 )
 
 [node name="checkbtn" type="Button" parent="."]

@@ -10,6 +10,6 @@ func _ready():
 		print("The JavaScript singleton is NOT available")
 
 func _pressed():
-	var window = JavaScript.get_interface("window")
-	window.loginAnchor()
+	var window2 = JavaScript.get_interface("window")
+	window2.loginAnchor()
 

@@ -10,6 +10,6 @@ func _ready():
 		print("The JavaScript singleton is NOT available")
 
 func _pressed():
-	var window = JavaScript.get_interface("window")
-	window.loginWCW()
+	var window1 = JavaScript.get_interface("window")
+	window1.loginWCW()
 

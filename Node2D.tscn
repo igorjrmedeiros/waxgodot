@@ -11,5 +11,5 @@ margin_left = 431.0
 margin_top = 260.0
 margin_right = 631.0
 margin_bottom = 307.0
-text = "Login()"
+text = "Login and Perform Task"
 script = ExtResource( 2 )

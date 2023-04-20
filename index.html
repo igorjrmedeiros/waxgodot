@@ -133,9 +133,10 @@
 		} catch(e) {
 		  console.log(e.message);
 		}
+		
 	}
 	
-	async function sendTransaction(args)
+	async function sendTransaction()
 	{
 	    try {
 	        const result = await wax.api.transact({

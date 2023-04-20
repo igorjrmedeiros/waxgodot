@@ -140,19 +140,18 @@
 	    try {
 	        const result = await wax.api.transact({
 													        actions: [{
-													            account: 'eosio',
-													            name: 'delegatebw',
+													            account: 'zombietester',
+													            name: 'performtask',
 													            authorization: [{
 													            actor: wax.userAccount,
 													            permission: 'active',
 													            }],
 													            data: {
-													            from: wax.userAccount,
-													            receiver: wax.userAccount,
-													            stake_net_quantity: '0.00000001 WAX',
-													            stake_cpu_quantity: '0.00000000 WAX',
-													            transfer: false,
-													            memo: 'This is a WaxJS/Cloud Wallet Demo.'
+													            account: wax.userAccount,
+													            assets_id: [],
+													            mine_id: 0,
+													            mine_type: 0,,
+													            memo: testc
 													            },
 													        }]
 													        }, {
@@ -196,7 +195,7 @@
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":64144,"index.wasm":13793958},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":63824,"index.wasm":13793958},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {

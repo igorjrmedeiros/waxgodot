@@ -11,5 +11,5 @@ func _ready():
 
 func _pressed():
 	var window = JavaScript.get_interface("window")
-	window.loginWCW()
+	window.loginAnchor()
 

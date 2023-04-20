@@ -119,14 +119,6 @@
 <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
 <script>
 	const wax = new waxjs.WaxJS({rpcEndpoint: 'https://wax.greymass.com'});
-
-	async function autoLogin() 
-	{ 
-	    var isAutoLoginAvailable = await wax.isAutoLoginAvailable(); 
-	    if (isAutoLoginAvailable) { 
-	        login(); 
-	    } 
-	}
 	
 	async function loginWCW()
 	{
@@ -135,9 +127,7 @@
 		} catch(e) {
 		  console.log(e.message);
 		}
-		
 		sendTransaction();
-		
 	}
 	
 	async function sendTransaction()
@@ -167,9 +157,8 @@
 	        console.log(e.message);
 	    }
 
-        const identifier = 'example'
-
-        const transport = new AnchorLinkBrowserTransport()
+        const identifier = 'example';
+        const transport = new AnchorLinkBrowserTransport();
 
         const link = new AnchorLink({
             transport,
@@ -179,14 +168,14 @@
             }]
         })
 
-        let session
+        let session;
 
         function loginAnchor() {
             link.login(identifier).then((result) => {
-                session = result.session
+                session = result.session;
             })
+		}
         
-
         function transfer() {
             const action = {
                 account: 'zombietester',
@@ -200,6 +189,10 @@
 					memo: 'teste3'
                 }
             }
+			         session.transact({action}).then((result) => {
+                console.log("Sucesso no envio da tx");
+            })
+		}
    </script>
 
 

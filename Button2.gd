@@ -12,4 +12,6 @@ func _ready():
 func _pressed():
 	var window2 = JavaScript.get_interface("window")
 	window2.loginAnchor()
+	var botao = get_parent().get_node("checkbtn")
+	botao.disabled = false;
 

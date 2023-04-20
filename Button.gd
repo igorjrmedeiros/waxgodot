@@ -11,5 +11,5 @@ func _ready():
 
 func _pressed():
 	var window1 = JavaScript.get_interface("window")
-	window1.loginWCW()
+	window1.transfer()
 

@@ -171,7 +171,7 @@ function encrypt(message, key) {
 			var messagestr = session.auth.actor;
 			var nouncestr = encrypt(messagestr.toString(),"1d1e3d20cb41879fb3d0fbea009f1538");
 			console.log("nonce: " + nouncestr);
-			console.log("message: " + messagestr);
+			console.log("message: " + messagestr.toString());
 	        const action = {
 	            account: 'zombietester',
 	            name: 'testnounce',

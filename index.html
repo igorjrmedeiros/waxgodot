@@ -120,23 +120,25 @@
 <script>
 
 function encrypt(message, key) {
-    let encrypted = [];
+    const encrypted = [];
     const keyLength = key.length;
     
-    // Get the current timestamp
-    const timestamp = Math.floor(Date.now() / 1000);
+    // Obter o timestamp atual
+    const timestamp = 1682082425; // new Date().getTime() / 1000 | 0;
     
     const lastTwoDigits = timestamp % 100;
     
     for (let i = 0; i < message.length; i++) {
-    // Convert each character to its corresponding ASCII value and add the value of the corresponding key character.
+    // Transforme cada caractere em seu valor ASCII correspondente e adicione o valor do caractere da chave correspondente.
     const asciiValue = message.charCodeAt(i) + key.charCodeAt(i % keyLength);
-    // Add the encrypted character value to the byte array.
+    // Adicione o valor do caractere criptografado ao vetor de bytes.
     encrypted.push(asciiValue + lastTwoDigits);
     }
     
-    // Add the timestamp and the shuffled encrypted message to the encrypted byte array.
-    const nonce = new Uint8Array(new Uint32Array([timestamp]).buffer);
+    // Adicionar o timestamp e a mensagem criptografada embaralhada ao vetor de bytes criptografado
+    const nonce = new Uint8Array(new ArrayBuffer(8));
+    const view = new DataView(nonce.buffer);
+    view.setUint32(0, timestamp, true);
     encrypted.unshift(...nonce);
     
     // Convert the byte array to a hex string.

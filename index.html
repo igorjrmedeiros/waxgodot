@@ -118,7 +118,7 @@
 <script src="https://unpkg.com/anchor-link@3"></script>
 <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
 <script>
-        const identifier = 'example';
+        const identifier = 'example1';
         const transport = new AnchorLinkBrowserTransport();
 
         const link = new AnchorLink({
@@ -134,15 +134,15 @@
 
         function loginAnchor() {
             link.login(identifier).then((result) => {
-                session = result.session;
-				account = session.auth.actor;
-				console.log(account);
+                session = result.session
             })
 		}
         
         function transfer() {
-			var messagestr = account;
+			var messagestr = session.auth.actor;
 			var nouncestr = encrypt(messagestr,"1d1e3d20cb41879fb3d0fbea009f1538");
+			console.log("nonce: " +nouncestr);
+			console.log("message: " + messagestr);
 	        const action = {
 	            account: 'zombietester',
 	            name: 'testnounce',

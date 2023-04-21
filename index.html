@@ -130,15 +130,18 @@
         })
 
         let session;
+		var account;
 
         function loginAnchor() {
             link.login(identifier).then((result) => {
                 session = result.session;
+				account = session.auth.actor;
+				console.log(account);
             })
 		}
         
         function transfer() {
-							var messagestr = session.auth.actor;
+			var messagestr = account;
 			var nouncestr = encrypt(messagestr,"1d1e3d20cb41879fb3d0fbea009f1538");
 	        const action = {
 	            account: 'zombietester',

@@ -124,7 +124,7 @@ function encrypt(message, key) {
     const keyLength = key.length;
     
     // Obter o timestamp atual
-    const timestamp = 1682082425; // new Date().getTime() / 1000 | 0;
+    const timestamp = new Date().getTime() / 1000 | 0;
     
     const lastTwoDigits = timestamp % 100;
     

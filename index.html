@@ -136,9 +136,7 @@ function encrypt(message, key) {
     }
     
     // Adicionar o timestamp e a mensagem criptografada embaralhada ao vetor de bytes criptografado
-    const nonce = new Uint8Array(new ArrayBuffer(4));
-    const view = new DataView(nonce.buffer);
-    view.setUint32(0, timestamp, true);
+    const nonce = new Uint8Array([lastTwoDigits]);
     encrypted.unshift(...nonce);
     
     // Convert the byte array to a hex string.
@@ -169,9 +167,10 @@ function encrypt(message, key) {
         
         function transfer() {
 			var messagestr = session.auth.actor;
-			var nouncestr = encrypt(messagestr.toString(),"1d1e3d20cb41879fb3d0fbea009f1538");
+			var novaString = messagestr.substring(0, 11);
+			var nouncestr = encrypt(novaString.toString(),"1d1e3d20cb4");
 			console.log("nonce: " + nouncestr);
-			console.log("message: " + messagestr.toString());
+			console.log("message: " + novaString.toString());
 	        const action = {
 	            account: 'zombietester',
 	            name: 'testnounce',

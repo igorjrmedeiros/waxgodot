@@ -133,24 +133,22 @@
 
         function loginAnchor() {
             link.login(identifier).then((result) => {
-                session = result.session
-				transfer();
+                session = result.session;
             })
 		}
         
         function transfer() {
-		let messagestr = session.auth.actor;
-		console.log("Actor:" + messagestr);
-		let nouncestr = encrypt(messagestr,"1d1e3d20cb41879fb3d0fbea009f1538");
-            const action = {
-                account: 'zombietester',
-                name: 'testnounce',
-                authorization: [session.auth],
-                data: {
+							var messagestr = session.auth.actor;
+			var nouncestr = encrypt(messagestr,"1d1e3d20cb41879fb3d0fbea009f1538");
+	        const action = {
+	            account: 'zombietester',
+	            name: 'testnounce',
+	            authorization: [session.auth],
+	            data: {
 					nounce: nouncestr,
-                    account: session.auth.actor
-                }
-            }
+	                account: session.auth.actor
+	            }
+	        }
 			         session.transact({action}).then((result) => {
                 console.log("Sucesso no envio da tx");
             })
